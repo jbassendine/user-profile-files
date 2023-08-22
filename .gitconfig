@@ -1,0 +1,36 @@
+# This is Git's per-user configuration file.
+[user]
+# Please adapt and uncomment the following lines:
+#	name = James Bassendine
+#	email = jbassendine@fastmail.co.uk
+[alias]
+	co = checkout
+	cm = commit -m
+	cam = commit --amend
+	acam = !git add -A && git commit --amend
+	acm = !git add -A && git commit -m
+	s = status
+	l = log --oneline --graph --decorate
+	b = branch
+	d = diff
+	lg = log --all --color --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit
+[alias]
+    	lb = !git reflog show --pretty=format:'%gs ~ %gd' --date=relative | grep 'checkout:' | grep -oE '[^ ]+ ~ .*' | awk -F~ '!seen[$1]++' | head -n 10 | awk -F' ~ HEAD@{' '{printf(\"  \\033[33m%s: \\033[37m %s\\033[0m\\n\", substr($2, 1, length($2)-1), $1)}'
+	alias = ! git config --get-regexp ^alias\\. | sed -e s/^alias\\.// -e s/\\ /\\ =\\ /
+
+
+[mergetool]
+    keepBackup = false
+[merge]
+    tool = meld
+[mergetool "meld"]
+    cmd = meld --diff $BASE $LOCAL --diff $BASE $REMOTE --auto-merge $LOCAL $BASE $REMOTE -o $MERGED
+[diff]
+    tool = meld    
+
+	
+[user]
+	email = jbassendine@fastmail.co.uk
+	name = James Bassendine
+[core]
+	editor = vi
