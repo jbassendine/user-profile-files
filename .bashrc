@@ -33,3 +33,10 @@ export EDITOR="vi"
 export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
+
+export JAVA_HOME=/usr/lib/jvm/java-11-openjdk-11.0.19.0.7-1.fc36.x86_64/
+
+export HISTFILESIZE=-1
+export HISTSIZE=-1
+export HISTFILE=~/.bash_history
+PROMPT_COMMAND="history -a; $PROMPT_COMMAND"
